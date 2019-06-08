@@ -11,6 +11,14 @@ cd naive-bayes-api
 npm install
 ```
 
+## Setting up Firebase
+Setup a new Firebase project at firebase.google.com 
+To get the account key.json go to:
+Project Overview -> Project Settings -> Service accounts. Make note of the databaseURL then generate a new private key. This'll download a json file which you need to rename to `firebase-service-account-key.json` and put in the root directory. 
+
+Then create a .env file in the root, there is only one param you need:
+`FIREBASE_URL=<databaseURL>`
+
 ## Running
 
 ```bash
