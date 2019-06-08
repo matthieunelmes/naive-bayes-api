@@ -1,0 +1,17 @@
+# Node build artifacts
+node_modules
+npm-debug.log
+config
+example
+
+# Local development
+*.env
+*.dev
+.DS_Store
+
+# Docker
+Dockerfile
+docker-compose.yml
+
+keyfile.json
+firebase-service-account-key.json

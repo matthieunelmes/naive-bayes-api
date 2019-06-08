@@ -1,0 +1,231 @@
+{
+	"info": {
+		"_postman_id": "12d157f9-e4e9-8204-aff4-5f969204d4ef",
+		"name": "Entour-Classifier-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Model",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9311/api/model/-LgnoO_w5A9DTFw-tezZ/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9311",
+					"path": [
+						"api",
+						"model",
+						"-LgnoO_w5A9DTFw-tezZ",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Model Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9311/api/models",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9311",
+					"path": [
+						"api",
+						"models"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Model",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"test model\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9311/model/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9311",
+					"path": [
+						"model",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Training Model Item",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"modelId\": \"-LSLkK51F9CEE3zWuT2u\",\n\t\"text\": \"weak\",\n\t\"classification\" : \"negative\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9311/api/model/-LSLkK51F9CEE3zWuT2u/addItem",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9311",
+					"path": [
+						"api",
+						"model",
+						"-LSLkK51F9CEE3zWuT2u",
+						"addItem"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Train Model",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9311/api/model/-LgnoO_w5A9DTFw-tezZ/train",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9311",
+					"path": [
+						"api",
+						"model",
+						"-LgnoO_w5A9DTFw-tezZ",
+						"train"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9311/model/-LSQDxXhc8MdRMbPeSRA/train",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9311",
+					"path": [
+						"model",
+						"-LSQDxXhc8MdRMbPeSRA",
+						"train"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Classify",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"text\": \"drop\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9311/model/-LSQDxXhc8MdRMbPeSRA/classify",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9311",
+					"path": [
+						"model",
+						"-LSQDxXhc8MdRMbPeSRA",
+						"classify"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Probability",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"text\": \"drop\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9311/api/model/-LSQDxXhc8MdRMbPeSRA/probability",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9311",
+					"path": [
+						"api",
+						"model",
+						"-LSQDxXhc8MdRMbPeSRA",
+						"probability"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
