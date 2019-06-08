@@ -15,3 +15,4 @@ docker-compose.yml
 
 keyfile.json
 firebase-service-account-key.json
+dist/
