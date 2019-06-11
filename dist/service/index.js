@@ -198,7 +198,7 @@ function Service(Config, bayes) {
         var itemsCount = (modelTrainingItems.length * (percentage / 100)).toFixed();
         // Foreach item, test it and compare against its pre-trained classifications
         for (var x = 0; x < itemsCount; x++) {
-          if (_trainedClassifier.categorize(modelTrainingItems[x].text) === modelTrainingItems[x].classification) {
+          if (_trainedClassifier.categorize(modelTrainingItems[x].text).chosenCategory === modelTrainingItems[x].classification) {
             correctResults++;
           }
         }
