@@ -9,7 +9,7 @@
     "start": "node dist",
     "prestart": "npm run -s build",
     "test": "eslint src",
-    "heroku-postbuild": "npm start"
+    "heroku-postbuild": ""
   },
   "author": "",
   "license": "ISC",
