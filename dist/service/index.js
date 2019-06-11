@@ -26,6 +26,7 @@ function Service(Config, bayes) {
     _firebase.database().ref('models/').push(model).then(function (response) {
       callback(response.key);
     }).catch(function (err) {
+      console.log(err);
       callback(false);
     });
   },
@@ -39,9 +40,10 @@ function Service(Config, bayes) {
    */
   Service.prototype.addModelTrainingItem = function (modelId, item, callback) {
     _firebase.database().ref('modelTrainingItems/').push(item).then(function (response) {
-      _firebase.database().ref('models/' + modelId + '/modelTrainingItems/').child(response.key).set(true).then(function (res) {
+      _firebase.database().ref('models/' + modelId + '/modelTrainingItems/').child(response.key).set(true).then(function () {
         callback(response.key);
       }).catch(function (err) {
+        console.log(err);
         callback(false);
       });
     });
@@ -58,12 +60,14 @@ function Service(Config, bayes) {
     function deleteItems(items) {
       items.forEach(function (item) {
         _firebase.database().ref('models/' + modelId + '/modelTrainingItems/').child(item.key).set(null).then(function () {
-          _firebase.database().ref('/modelTrainingItems/').child(item.key).set(null).then(function (response) {
+          _firebase.database().ref('/modelTrainingItems/').child(item.key).set(null).then(function () {
             callback(true);
           }).catch(function (err) {
+            console.log(err);
             callback(false);
           });
         }).catch(function (err) {
+          console.log(err);
           callback(false);
         });
       });
@@ -186,7 +190,6 @@ function Service(Config, bayes) {
   */
   Service.prototype.testModel = function (modelId, percentage, callback) {
     var correctResults = 0;
-    var incorrectResults = 0;
     // Load the saved Json Classifier for the model
     _firebase.database().ref('models/' + modelId + '/classifierJson').once('value', function (classifierJsonSnap) {
       var _trainedClassifier = bayes.fromJson(classifierJsonSnap.val());
@@ -197,8 +200,6 @@ function Service(Config, bayes) {
         for (var x = 0; x < itemsCount; x++) {
           if (_trainedClassifier.categorize(modelTrainingItems[x].text) === modelTrainingItems[x].classification) {
             correctResults++;
-          } else {
-            incorrectResults++;
           }
         }
         callback({
@@ -221,9 +222,10 @@ function Service(Config, bayes) {
         _classifier.learn(modelTrainingItems[x].text, modelTrainingItems[x].classification);
       }
       //Save classifier to Json
-      _firebase.database().ref('models/' + modelId).child('classifierJson').set(_classifier.toJson()).then(function (response) {
+      _firebase.database().ref('models/' + modelId).child('classifierJson').set(_classifier.toJson()).then(function () {
         callback(true);
       }).catch(function (err) {
+        console.log(err);
         callback(false);
       });
     });

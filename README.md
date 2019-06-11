@@ -13,11 +13,13 @@ npm install
 
 ## Setting up Firebase
 Setup a new Firebase project at firebase.google.com 
-To get the account key.json go to:
-Project Overview -> Project Settings -> Service accounts. Make note of the databaseURL then generate a new private key. This'll download a json file which you need to rename to `firebase-service-account-key.json` and put in the root directory. 
+Within the newly created project dashboard, click `Database` on the side menu and select `Create database` under the **real-time database** section.
 
-Then create a .env file in the root, there is only one param you need:
-`FIREBASE_URL=<databaseURL>`
+Next, you need to download the connection credentials which will allow the application to connect to the database. To do this go to:
+Project Overview -> Project Settings -> Service accounts. Make note of the databaseURL then click `generate a new private key`. This'll download a json file which contains your connection credentials.
+
+Create a copy of example.env and rename to .env Then copy across the values from the json file which you just downloaded from Firebase. The `FIREBASE_URL` is the databaseURL from the previous step.
+
 
 ## Running
 
