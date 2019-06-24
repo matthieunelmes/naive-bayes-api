@@ -1,6 +1,6 @@
 # Naive Bayes API
 
-A Firebase powered API that allows you to build and train your own Machine Learning models and impress all of your friends and make your employers really rich and popular.
+A Firebase powered API that allows you to build and train your own Machine Learning models and impress all of your friends and make you really rich and popular.
 
 
 ## Installation
